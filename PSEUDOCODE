@@ -1,0 +1,38 @@
+Display Menu:
+    Display "Menu"
+    Display "1. Load Data Structure"
+    Display "2. Print Course List"
+    Display "3. Print Course"
+    Display "4. Exit"
+
+    Read user input
+
+    If user input is "1":
+        Call Load Data Structure function
+    Else if user input is "2":
+        Call Print Course List function
+    Else if user input is "3":
+        Call Print Course function
+    Else if user input is "4":
+        Exit program
+    Else:
+        Display "Invalid input. Please try again."
+        Call Display Menu function again
+
+
+Load Data Structure:
+    Read file data into data structure
+
+Print Course List:
+    Sort course information by alphanumeric course number from lowest to highest
+    Print sorted list to display
+
+Print Course:
+    Prompt user for course number
+    Search data structure for course number
+    If course is found:
+        Print course title and prerequisites
+    Else:
+        Display "Course not found. Please try again."
+
+Exit program
