@@ -22,7 +22,6 @@ int main() {
 
   readCoursesFile(filePath, courses);
 
-  // Display the courses
   for (const Course& c : courses) {
     cout << c.courseNumber << ": " << c.courseTitle << endl;
     if (!c.prerequisites.empty()) {
@@ -46,7 +45,6 @@ void readCoursesFile(string filePath, vector<Course>& courses) {
       string courseNumber, courseTitle, prerequisite;
       vector<string> prerequisites;
 
-      // Read course number and title
       if (!getline(ss, courseNumber, ',')) {
         cout << "Invalid line: " << line << endl;
         continue;
@@ -56,13 +54,10 @@ void readCoursesFile(string filePath, vector<Course>& courses) {
         continue;
       }
 
-      // Read prerequisites
       while (getline(ss, prerequisite, ',')) {
-        // Trim whitespace from prerequisite
         prerequisite.erase(0, prerequisite.find_first_not_of(" "));
         prerequisite.erase(prerequisite.find_last_not_of(" ") + 1);
 
-        // Check if prerequisite is a course in the courses file
         bool found = false;
         for (Course& c : courses) {
           if (c.courseNumber == prerequisite) {
@@ -72,7 +67,16 @@ void readCoursesFile(string filePath, vector<Course>& courses) {
           }
         }
         if (!found) {
-          cout << "Invalid prerequisite: " << prerequisite << " in line: " << line << endl;
+          bool isCourseNumber = true;
+          for (char& c : prerequisite) {
+            if (!isdigit(c)) {
+              isCourseNumber = false;
+              break;
+            }
+          }
+          if (isCourseNumber) {
+            cout << "Invalid prerequisite: " << prerequisite << " in line: " << line << endl;
+          }
         }
       }
 
