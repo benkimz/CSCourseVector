@@ -1,0 +1,5 @@
+CSCI101, Introduction to Computer Science
+MATH101, Calculus I
+MATH102, Calculus II, MATH101
+PHYS101, General Physics I, MATH101
+PHYS102, General Physics II, PHYS101, MATH102

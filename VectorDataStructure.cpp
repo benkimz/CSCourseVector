@@ -25,6 +25,7 @@ int main() {
   for (string preReq : courses[3].prerequisites) {
     cout << preReq << " ";
   }
+  
   cout << endl;
 
   return 0;
